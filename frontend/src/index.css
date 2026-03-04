@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-india-saffron: #FF9933;
+  --color-india-white: #FFFFFF;
+  --color-india-green: #138808;
+  --color-india-navy: #000080;
+  --color-gov-indigo: #2D336B;
+  --color-gov-emerald: #116A7B;
+  --color-gov-amber: #C27664;
+  --color-category-agri: #138808;
+  --color-category-edu: #2D336B;
+  --color-category-health: #C27664;
+  --color-category-biz: #FF9933;
+
+  --font-hindi: "Noto Sans Devanagari", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --animate-breathing: breathing 2s ease-in-out infinite;
+
+  @keyframes breathing {
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+}
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 overflow-x-hidden;
+}
+
+.indian-gradient {
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.05) 0%, rgba(255, 255, 255, 1) 50%, rgba(19, 136, 8, 0.05) 100%);
+}
+
+.glass-card {
+  @apply bg-white border border-gray-100 shadow-2xl;
+}
+
+.btn-saffron {
+  @apply bg-india-saffron text-white font-black py-4 px-10 rounded-full hover:bg-orange-600 transition-all shadow-xl hover:shadow-orange-200 uppercase tracking-widest text-xs;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(#000080 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  opacity: 0.05;
+}
+
+.tri-color-border {
+  border-top: 4px solid #FF9933;
+  border-bottom: 4px solid #138808;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-india-navy rounded-full;
+}

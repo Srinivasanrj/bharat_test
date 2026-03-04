@@ -1,0 +1,1 @@
+{"error":{"message":"First message must be from user (or after system message)","code":"invalid_request_error","request_id":"20260228_2199c1d6-8292-4bb4-9825-262b5088cb23"}}

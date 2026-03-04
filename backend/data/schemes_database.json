@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "name": "PM MUDRA Yojana",
+    "name_hi": "प्रधानमंत्री मुद्रा योजना",
+    "category": "Business",
+    "description": "Financial support for micro-enterprises.",
+    "benefit": "Up to ₹10 Lakhs",
+    "eligibility": {
+      "min_age": 18,
+      "occupation": [
+        "Entrepreneurs",
+        "Small Business Owners"
+      ],
+      "income_limit": null
+    },
+    "link": "https://www.mudra.org.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "PM-KISAN",
+    "name_hi": "पीएम किसान",
+    "category": "Agriculture",
+    "description": "Income support to all landholding farmers' families.",
+    "benefit": "₹6,000 per year",
+    "eligibility": {
+      "occupation": [
+        "Farmer"
+      ],
+      "min_land": 0.1
+    },
+    "link": "https://pmkisan.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Ayushman Bharat",
+    "name_hi": "आयुष्मान भारत",
+    "category": "Health",
+    "description": "Comprehensive health cover of ₹5 lakh per family.",
+    "benefit": "₹5 Lakhs health cover",
+    "eligibility": {
+      "income_limit": 250000,
+      "category": [
+        "Low Income"
+      ]
+    },
+    "link": "https://dashboard.pmjay.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Stand-Up India",
+    "name_hi": "स्टैंड-अप इंडिया",
+    "category": "Business",
+    "description": "Loans to SC/ST and women entrepreneurs.",
+    "benefit": "₹10 Lakh to ₹1 Crore",
+    "eligibility": {
+      "category": [
+        "SC",
+        "ST",
+        "Female"
+      ],
+      "min_age": 18
+    },
+    "link": "https://www.standupmitra.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income",
+      "birth"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "National Savitri Bai Phule Scholarship",
+    "name_hi": "सावित्रीबाई फुले छात्रवृत्ति",
+    "category": "Education",
+    "description": "Support for girl students from backward classes.",
+    "benefit": "Monthly stipend",
+    "eligibility": {
+      "gender": "Female",
+      "occupation": [
+        "Student"
+      ],
+      "income_limit": 150000
+    },
+    "link": "https://scholarships.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "birth"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "PM Awas Yojana",
+    "name_hi": "प्रधानमंत्री आवास योजना",
+    "category": "Housing",
+    "description": "Housing for all by providing subsidies.",
+    "benefit": "Up to ₹2.67 Lakh subsidy",
+    "eligibility": {
+      "income_limit": 1800000,
+      "no_pucca_house": true
+    },
+    "link": "https://pmaymis.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Tamil Nadu Agri Loan Waiver",
+    "name_hi": "तमिलनाडु कृषि ऋण माफी",
+    "category": "Agriculture",
+    "description": "Waiver of cooperative crop loans for farmers.",
+    "benefit": "Full loan waiver",
+    "eligibility": {
+      "state": "Tamil Nadu",
+      "occupation": [
+        "Farmer"
+      ]
+    },
+    "link": "https://www.tn.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Karnataka Old Age Pension",
+    "name_hi": "कर्नाटक वृद्धावस्था पेंशन",
+    "category": "Social Welfare",
+    "description": "Financial assistance to senior citizens.",
+    "benefit": "₹1,200 per month",
+    "eligibility": {
+      "state": "Karnataka",
+      "min_age": 65,
+      "income_limit": 50000
+    },
+    "link": "https://sevasindhu.karnataka.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "birth",
+      "income"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Mahatma Jyotirao Phule Jan Arogya Yojana",
+    "name_hi": "महात्मा ज्योतिराव फुले जन आरोग्य योजना",
+    "category": "Health",
+    "description": "Cashless health insurance for Maharashtra citizens.",
+    "benefit": "₹1.5 Lakh health cover",
+    "eligibility": {
+      "state": "Maharashtra",
+      "income_limit": 100000
+    },
+    "link": "https://www.jeevandayee.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "income"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "NSS Scholarship",
+    "name_hi": "एनएसएस छात्रवृत्ति",
+    "category": "Education",
+    "description": "Reward for social service by students.",
+    "benefit": "Academic merit certification + stipend",
+    "eligibility": {
+      "occupation": [
+        "Student"
+      ],
+      "nss_volunteer": true
+    },
+    "link": "https://nss.gov.in/",
+    "requiredDocuments": [
+      "aadhaar",
+      "birth"
+    ]
+  }
+]

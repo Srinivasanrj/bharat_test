@@ -1,0 +1,1 @@
+{"error":{"message":"body.model : Value error, Input 'sarvam-1' should be one of sarvam-m, sarvam-30b, sarvam-30b-16k, sarvam-105b, sarvam-105b-32k","code":"invalid_request_error","request_id":"20260302_579f2c2b-06e2-497a-a97d-6cb6fb1b9c5c"}}

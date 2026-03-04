@@ -1,0 +1,41 @@
+{
+    "en": {
+        "welcome": "Welcome to Mitra",
+        "voice_instruction": "Tap the mic and say 'Namaste' to begin",
+        "eligible": "Eligible",
+        "docs_needed": "Documents Needed",
+        "not_eligible": "Not Eligible",
+        "apply_now": "Apply Now",
+        "details": "View Details",
+        "chat_placeholder": "Talk or type here...",
+        "loading": "Checking eligibility...",
+        "results_title": "Matching Schemes for You",
+        "government_approved": "Government Approved"
+    },
+    "hi": {
+        "welcome": "मित्रा में आपका स्वागत है",
+        "voice_instruction": "शुरू करने के लिए माइक पर टैप करें और 'नमस्ते' कहें",
+        "eligible": "पात्र",
+        "docs_needed": "दस्तावेज़ की आवश्यकता",
+        "not_eligible": "पात्र नहीं",
+        "apply_now": "अभी आवेदन करें",
+        "details": "विवरण देखें",
+        "chat_placeholder": "यहाँ बात करें या टाइप करें...",
+        "loading": "पात्रता की जाँच की जा रही है...",
+        "results_title": "आपके लिए मिलान योजनाएं",
+        "government_approved": "सरकार द्वारा अनुमोदित"
+    },
+    "ta": {
+        "welcome": "மித்ராவிற்கு வரவேற்கிறோம்",
+        "voice_instruction": "தொடங்குவதற்கு மைக்கை தட்டி 'வணக்கம்' என்று சொல்லுங்கள்",
+        "eligible": "தகுதியானவர்",
+        "docs_needed": "ஆவணங்கள் தேவை",
+        "not_eligible": "தகுதியற்றவர்",
+        "apply_now": "இப்போது விண்ணப்பிக்கவும்",
+        "details": "விவரங்களைக் காண்க",
+        "chat_placeholder": "இங்கே பேசவும் அல்லது தட்டச்சு செய்யவும்...",
+        "loading": "தகுதியைச் சரிபார்க்கிறது...",
+        "results_title": "உங்களுக்கான பொருந்தும் திட்டங்கள்",
+        "government_approved": "அரசு அங்கீகாரம் பெற்றது"
+    }
+}
