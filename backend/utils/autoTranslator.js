@@ -5,19 +5,20 @@ const path = require('path');
 const CACHE_FILE = path.join(__dirname, '../data/translations_cache.json');
 let cache = {};
 
-if (fs.existsSync(CACHE_FILE)) {
-    try {
+try {
+    if (fs.existsSync(CACHE_FILE)) {
         cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
-    } catch (e) {
-        console.error("Cache load error", e);
     }
+} catch (e) {
+    console.warn("Cache load skipped (serverless environment):", e.message);
 }
 
 const saveCache = () => {
     try {
         fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
     } catch (e) {
-        console.error("Cache save error", e);
+        // In Lambda, filesystem is read-only; cache stays in-memory only
+        console.warn("Cache save skipped (read-only filesystem)");
     }
 };
 

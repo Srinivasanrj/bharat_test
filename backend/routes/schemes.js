@@ -1,33 +1,87 @@
 const express = require('express');
 const router = express.Router();
-const schemesData = require('../data/schemes_database.json');
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, ScanCommand } = require("@aws-sdk/lib-dynamodb");
 const { checkEligibility } = require('../utils/eligibilityChecker');
 
-// GET all schemes
-router.get('/', (req, res) => {
-    res.json(schemesData);
+// Initialize DynamoDB client
+const client = new DynamoDBClient({ region: "eu-north-1" });
+const docClient = DynamoDBDocumentClient.from(client);
+
+const TABLE_NAME = "SchemesTable";
+
+// Helper function to get all items from DynamoDB (handles pagination)
+async function getAllSchemes() {
+    let items = [];
+    let lastEvaluatedKey = undefined;
+
+    do {
+        const params = {
+            TableName: TABLE_NAME,
+        };
+        if (lastEvaluatedKey) {
+            params.ExclusiveStartKey = lastEvaluatedKey;
+        }
+
+        const result = await docClient.send(new ScanCommand(params));
+        items = items.concat(result.Items || []);
+        lastEvaluatedKey = result.LastEvaluatedKey;
+    } while (lastEvaluatedKey);
+
+    return items;
+}
+
+// Also keep the local JSON as a fallback for local development
+let localSchemesData = null;
+try {
+    localSchemesData = require('../data/schemes_database.json');
+} catch (e) {
+    // Not available (e.g., in Lambda), that's fine
+}
+
+// GET all schemes (from schemes_database.json equivalent)
+router.get('/', async (req, res) => {
+    try {
+        if (localSchemesData) {
+            return res.json(localSchemesData);
+        }
+        const schemes = await getAllSchemes();
+        res.json(schemes);
+    } catch (error) {
+        console.error("Error fetching schemes:", error);
+        res.status(500).json({ error: "Failed to fetch schemes" });
+    }
 });
 
 // POST check eligibility
-router.post('/check-eligibility', (req, res) => {
-    const { userProfile } = req.body;
-    const results = schemesData.map(scheme => {
-        const eligibilityStatus = checkEligibility(scheme, userProfile);
-        return {
-            ...scheme,
-            eligibilityStatus // 'eligible', 'docs_needed', 'not_eligible'
-        };
-    });
-    res.json(results);
+router.post('/check-eligibility', async (req, res) => {
+    try {
+        const { userProfile } = req.body;
+        let schemes;
+        if (localSchemesData) {
+            schemes = localSchemesData;
+        } else {
+            schemes = await getAllSchemes();
+        }
+        const results = schemes.map(scheme => {
+            const eligibilityStatus = checkEligibility(scheme, userProfile);
+            return {
+                ...scheme,
+                eligibilityStatus
+            };
+        });
+        res.json(results);
+    } catch (error) {
+        console.error("Error checking eligibility:", error);
+        res.status(500).json({ error: "Failed to check eligibility" });
+    }
 });
 
+// GET all CSV schemes (paginated, with search and translation)
 router.get('/all-csv', async (req, res) => {
     try {
-        const fs = require('fs');
-        const path = require('path');
-        const dataPath = path.join(__dirname, '../data/csv_schemes.json');
-
-        let results = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        // Get all schemes from DynamoDB
+        let results = await getAllSchemes();
 
         const { search, location } = req.query;
 
@@ -71,7 +125,7 @@ router.get('/all-csv', async (req, res) => {
             schemes: paginatedSchemes
         });
     } catch (error) {
-        console.error("Error reading CSV schemes:", error);
+        console.error("Error reading schemes:", error);
         res.status(500).json({ error: "Failed to fetch schemes data" });
     }
 });
